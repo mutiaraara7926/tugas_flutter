@@ -15,12 +15,12 @@ class TugasDuaFlutter extends StatelessWidget {
       ),
       body: Column(
         children: [
-          SizedBox(
-          height:50),
+          SizedBox(height: 50),
           CircleAvatar(
             radius: 50,
             backgroundImage: AssetImage("assets/images/tralalelo.jpg"),
           ),
+
           // Container(
           //   height: 200,
           //   width: 200,
@@ -34,13 +34,11 @@ class TugasDuaFlutter extends StatelessWidget {
           //   ),
           // // ),
           // Image.asset("assets/images/tralalelo.jpeg", height: 200),
-        
-      
           Padding(
             padding: EdgeInsets.all(20),
             child: Container(
               padding: const EdgeInsets.all(20),
-              
+
               child: Row(
                 children: [
                   Text(
@@ -66,7 +64,7 @@ class TugasDuaFlutter extends StatelessWidget {
               child: Row(
                 children: [
                   Icon(Icons.email),
-                  
+
                   Text(
                     "arahwtfdwju@gmail.com",
                     style: TextStyle(fontFamily: "BitcounProp", fontSize: 20),
@@ -137,12 +135,16 @@ class TugasDuaFlutter extends StatelessWidget {
                       borderRadius: BorderRadius.circular(18),
                     ),
                     padding: EdgeInsets.all(12),
-                    child: Center(child: Text("Bisa ga yaaaa saya bertahan sampe akhirrrrr xixixixixixi")),
+                    child: Center(
+                      child: Text(
+                        "Bisa ga yaaaa saya bertahan sampe akhirrrrr xixixixixixi",
+                      ),
+                    ),
                   ),
                 ),
-              ]
-              ),
+              ],
             ),
+          ),
         ],
       ),
     );
