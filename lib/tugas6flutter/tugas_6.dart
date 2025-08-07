@@ -129,13 +129,19 @@ class _Tugas6State extends State<Tugas6> {
                     spacing: 12,
                     children: [
                       TextFormField(
+                        style: TextStyle(color: Color(0xFFFFFFFF)),
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
+
                           hint: Text(
                             "Email",
                             style: TextStyle(color: Colors.white),
                           ),
-                          prefixIcon: Icon(Icons.email),
+                          hintStyle: TextStyle(color: Color(0xFFFFFFFF)),
+                          prefixIcon: Icon(
+                            Icons.email,
+                            color: Color(0xFFFFFFFF),
+                          ),
                         ),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -149,13 +155,17 @@ class _Tugas6State extends State<Tugas6> {
                       ),
 
                       TextFormField(
+                        style: TextStyle(color: Color(0xFFFFFFFF)),
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           hint: Text(
                             "Password",
                             style: TextStyle(color: Colors.white),
                           ),
-                          prefixIcon: Icon(Icons.lock),
+                          prefixIcon: Icon(
+                            Icons.lock,
+                            color: Color(0xFFFFFFFF),
+                          ),
                         ),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
