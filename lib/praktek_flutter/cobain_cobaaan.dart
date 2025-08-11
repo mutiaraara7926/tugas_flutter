@@ -1,7 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:ppkd_b_3/Tugas8_flutter/tugas8.dart';
 
 void showSuccessDialog(BuildContext context, {required String message}) {
   showDialog(
@@ -68,14 +67,14 @@ void showSuccessDialog(BuildContext context, {required String message}) {
   );
 }
 
-class Tugas6 extends StatefulWidget {
-  const Tugas6({super.key});
+class CobainCobaaan extends StatefulWidget {
+  const CobainCobaaan({super.key});
 
   @override
-  State<Tugas6> createState() => _Tugas6State();
+  State<CobainCobaaan> createState() => _Tugas6State();
 }
 
-class _Tugas6State extends State<Tugas6> {
+class _Tugas6State extends State<CobainCobaaan> {
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -199,10 +198,10 @@ class _Tugas6State extends State<Tugas6> {
                               // ScaffoldMessenger.of(context).showSnackBar(
                               //   SnackBar(content: Text("Login Berhasil")),
                               // );
-                              Navigator.pushReplacement(
+                              Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => Tugaas8(),
+                                  builder: (context) => const CobainCobaaan(),
                                 ),
                               );
                               showSuccessDialog(
@@ -347,19 +346,142 @@ class _Tugas6State extends State<Tugas6> {
   }
 }
 
-class dasboard extends StatefulWidget {
-  const dasboard({super.key});
+class pagesetelahnya extends StatefulWidget {
+  const pagesetelahnya({super.key});
 
   @override
-  State<dasboard> createState() => _dasboardState();
+  State<pagesetelahnya> createState() => _pagesetelahnyaState();
 }
 
-class _dasboardState extends State<dasboard> {
+class _pagesetelahnyaState extends State<pagesetelahnya> {
+  int counter = 0;
+  String name = "lirili larila";
+  String text = "okee";
+  bool showName = true;
+  bool textInkwell = true;
+  bool isLiked = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: ElevatedButton(onPressed: () {}, child: const Text('Go back')),
+      appBar: AppBar(
+        title: Text("HAI!!!"),
+        centerTitle: true,
+        backgroundColor: const Color.fromARGB(220, 20, 113, 194),
+      ),
+      body: ListView(
+        children: [
+          Center(
+            child: Column(
+              children: [
+                Text(counter.toString(), style: const TextStyle(fontSize: 40)),
+                const SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    FloatingActionButton(
+                      onPressed: () {
+                        setState(() {
+                          counter--;
+                        });
+                      },
+                      child: const Icon(Icons.remove),
+                    ),
+                    const SizedBox(width: 20),
+                    FloatingActionButton(
+                      onPressed: () {
+                        setState(() {
+                          counter++;
+                        });
+                      },
+                      child: const Icon(Icons.add),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          SizedBox(width: 20),
+          ElevatedButton(
+            onPressed: () {
+              setState(() {});
+              showName = !showName;
+              print("Mutiara");
+              print("Mutiara");
+            },
+            child: Text(showName ? "Sembunyikan" : "Munculkan"),
+          ),
+          showName ? Text(name, style: TextStyle(fontSize: 30)) : SizedBox(),
+          // iconButton
+          SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [SizedBox(width: 20)],
+          ),
+          IconButton(
+            onPressed: () {
+              setState(() {
+                isLiked = !isLiked;
+              });
+              if (isLiked) print("Disukai");
+            },
+            icon: const Icon(Icons.favorite, size: 40),
+            color: isLiked ? Colors.pink[500] : Colors.grey,
+          ),
+
+          // textbutton
+          TextButton(
+            onPressed: () {
+              setState(() {});
+              textInkwell = !textInkwell;
+              print("blablabla");
+            },
+            child: Text(textInkwell ? "Sembunyikan" : "Lihat Selengkapnya"),
+          ),
+          textInkwell ? Text(text, style: TextStyle(fontSize: 30)) : SizedBox(),
+
+          InkWell(
+            onTap: () {
+              setState(() {
+                textInkwell = !textInkwell;
+              });
+              print("Kotak Disentuh");
+            },
+            child: Container(
+              height: 200,
+              width: 200,
+              decoration: BoxDecoration(
+                border: Border.all(width: 2),
+                image: DecorationImage(
+                  image: AssetImage(
+                    "assets/images/ballerina_capucina-removebg-preview.png",
+                  ),
+                ),
+              ),
+              alignment: Alignment.bottomCenter,
+              child: textInkwell
+                  ? Text("Ballerina Cappucina", style: TextStyle(fontSize: 20))
+                  : SizedBox(),
+            ),
+          ),
+          SizedBox(height: 30),
+          GestureDetector(
+            onTap: () {
+              print("Ditekan Sekali");
+            },
+            onDoubleTap: () {
+              print("Ditekan Dua Kali");
+            },
+            onLongPress: () {
+              print("Tahan Lama");
+            },
+            child: Container(
+              color: const Color.fromARGB(255, 186, 106, 224),
+              height: 30,
+              width: double.infinity,
+              child: Text("Tekan Aku"),
+            ),
+          ),
+        ],
       ),
     );
   }

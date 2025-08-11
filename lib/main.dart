@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_b_3/tugas6flutter/tugas_6.dart';
+import 'package:ppkd_b_3/Tugas8_flutter/tugas8.dart';
+// import 'package:ppkd_b_3/praktek_flutter/cobain_cobaaan.dart';
+// import 'package:ppkd_b_3/tugas7flutter/tugas7_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,7 +33,8 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Tugas6(),
+      //
+      home: Tugaas8(),
     );
   }
 }
