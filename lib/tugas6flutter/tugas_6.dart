@@ -10,7 +10,7 @@ void showSuccessDialog(BuildContext context, {required String message}) {
     barrierColor: Colors.black54, // semi transparan di belakang
     builder: (context) {
       // Timer auto close
-      Future.delayed(Duration(seconds: 4), () {
+      Future.delayed(Duration(seconds: 3), () {
         if (Navigator.canPop(context)) {
           Navigator.pop(context);
         }

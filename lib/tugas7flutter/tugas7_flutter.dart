@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ppkd_b_3/Tugas10_ParsingData/TugasSepuluh1.dart';
 // import 'package:ppkd_b_3/Tugas4_Flutter/tugas4_flutter.dart';
 import 'package:ppkd_b_3/extension/navigation.dart';
 import 'package:ppkd_b_3/tugas7flutter/DatePicker.dart';
@@ -26,6 +27,7 @@ class _tugasTujuhState extends State<tugasTujuh> {
     "Pilih Tanggal Lahir",
     "Atur Pengingat",
     "List ",
+    "Form Daftar",
   ];
   static const List<Widget> _widgetOptions = <Widget>[
     CheckboxTugas(),
@@ -34,6 +36,7 @@ class _tugasTujuhState extends State<tugasTujuh> {
     DatePickerTugas(),
     TimepickerTugas(),
     ListTugas(),
+    ParsingData1(),
   ];
 
   void onItemTap(int index) {
@@ -68,6 +71,7 @@ class _tugasTujuhState extends State<tugasTujuh> {
             ListTile(title: Text("Datepicker"), onTap: () => onItemTap(3)),
             ListTile(title: Text("Timepicker"), onTap: () => onItemTap(4)),
             ListTile(title: Text("List"), onTap: () => onItemTap(5)),
+            ListTile(title: Text("Form"), onTap: () => onItemTap(6)),
           ],
         ),
       ),
