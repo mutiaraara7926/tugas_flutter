@@ -16,10 +16,12 @@ class Tugassepuluh2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              Center(),
               Text(
                 "Terima kasih",
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
