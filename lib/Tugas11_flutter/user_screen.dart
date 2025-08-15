@@ -30,18 +30,6 @@ class _DataKomunitasState extends State<DataKomunitas> {
     });
   }
 
-  // Future<void> simpanData() async {
-  //   final nama = namaController.text;
-  //   final umur = int.tryParse(umurController.text) ?? 0;
-
-  //   if (nama.isNotEmpty && umur > 0) {
-  //     await insertUser(DataKomunitas(nama: nama, umur: umur));
-  //     namaController.clear();
-  //     umurController.clear();
-  //     muatData();
-  //   }
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,12 +47,9 @@ class _DataKomunitasState extends State<DataKomunitas> {
                 if (nama.isEmpty || umur.isEmpty || kota.isEmpty) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
-                      content: Text(
-                        "Email, Password, dan Nama tidak boleh kosong",
-                      ),
+                      content: Text("Nama, Umur, dan Kota tidak boleh kosong"),
                     ),
                   );
-
                   return;
                 }
                 final anggota = Anggota(nama: nama, umur: umur, kota: kota);
@@ -82,55 +67,75 @@ class _DataKomunitasState extends State<DataKomunitas> {
             ListView.builder(
               physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
-
               itemCount: anggota.length,
               itemBuilder: (BuildContext context, int index) {
                 final dataUserLogin = anggota[index];
-                // return ListTile(
-                //   title: Text(dataUserLogin.name),
-                //   subtitle: Text(dataUserLogin.phone,),
 
-                // );
-                return Container(
-                  margin: EdgeInsets.symmetric(vertical: 6),
-                  padding: EdgeInsets.all(12),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(12),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withValues(alpha: 0.2),
-                        blurRadius: 6,
-                        offset: Offset(0, 3),
-                      ),
-                    ],
-                  ),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                return ListTile(
+                  title: Text(dataUserLogin.nama),
+                  subtitle: Text(dataUserLogin.kota),
+                  trailing: Row(
+                    mainAxisSize: MainAxisSize.min,
                     children: [
-                      CircleAvatar(
-                        radius: 16,
-                        backgroundColor: Color(0xff21BDCA),
-                        child: Text(
-                          '${index + 1}',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
+                      IconButton(
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                              title: Text('Edit data'),
+                              content: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  TextFormConst(
+                                    controller: namaController
+                                      ..text = dataUserLogin.nama,
+                                    hintText: 'nama',
+                                  ),
+                                  SizedBox(height: 12),
+                                  TextFormConst(
+                                    controller: umurController
+                                      ..text = dataUserLogin.umur,
+                                    hintText: 'umur',
+                                  ),
+                                  SizedBox(height: 12),
+                                  TextFormConst(
+                                    controller: kotaController
+                                      ..text = dataUserLogin.kota,
+                                    hintText: 'kota',
+                                  ),
+                                ],
+                              ),
+                              actions: [
+                                ElevatedButton(
+                                  onPressed: () {
+                                    final DataKomunitas = Anggota(
+                                      id: dataUserLogin.id!,
+                                      nama: namaController.text,
+                                      umur: umurController.text,
+                                      kota: kotaController.text.trim(),
+                                    );
+                                    DbHelper.updateAnggota(DataKomunitas);
+                                    getAnggota();
+                                    Navigator.pop(context);
+                                  },
+                                  child: Text('Simpan'),
+                                ),
+                                ElevatedButton(
+                                  onPressed: () => Navigator.pop(context),
+                                  child: Text('Batal'),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                        icon: Icon(Icons.edit),
                       ),
-                      SizedBox(width: 15),
-                      Expanded(
-                        child: Column(
-                          // spacing: 12,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text("Nama : ${dataUserLogin.nama}"),
-                            Text("Umur : ${dataUserLogin.umur}"),
-
-                            Text("Asal Kota : ${dataUserLogin.kota}"),
-                          ],
-                        ),
+                      IconButton(
+                        onPressed: () {
+                          DbHelper.deleteUser(dataUserLogin.id!);
+                          getAnggota();
+                        },
+                        icon: Icon(Icons.delete),
                       ),
                     ],
                   ),

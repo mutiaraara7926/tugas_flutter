@@ -10,7 +10,7 @@ class DbHelper {
       join(dbPath, 'anggota.db'),
       onCreate: (db, version) {
         return db.execute(
-          'CREATE TABLE anggota(id INTEGER PRIMARY KEY, name TEXT, umur TEXT, kota TEXT)',
+          'CREATE TABLE anggota(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, umur TEXT, kota TEXT)',
         );
       },
       version: 1,
@@ -26,23 +26,25 @@ class DbHelper {
     );
   }
 
-  // static Future<User?> loginUser(String email, String password) async {
-  //   final db = await databaseHelper();
-  //   final List<Map<String, dynamic>> results = await db.query(
-  //     'users',
-  //     where: 'email = ? AND password = ?',
-  //     whereArgs: [email, password],
-  //   );
-
-  //   if (results.isNotEmpty) {
-  //     return User.fromMap(results.first);
-  //   }
-  //   return null;
-  // }
-
   static Future<List<Anggota>> getAllAnggota() async {
     final db = await databaseHelper();
     final List<Map<String, dynamic>> results = await db.query('anggota');
     return results.map((e) => Anggota.fromMap(e)).toList();
+  }
+
+  static Future<void> updateAnggota(Anggota anggota) async {
+    final db = await databaseHelper();
+    await db.update(
+      'anggota',
+      anggota.toMap(),
+      where: 'id = ?',
+      whereArgs: [anggota.id],
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
+  }
+
+  static Future<void> deleteUser(int id) async {
+    final db = await databaseHelper();
+    await db.delete('anggota', where: 'id = ?', whereArgs: [id]);
   }
 }
