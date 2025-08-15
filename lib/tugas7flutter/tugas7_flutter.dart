@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_b_3/Tugas10_ParsingData/TugasSepuluh1.dart';
+import 'package:ppkd_b_3/Tugas11_flutter/user_screen.dart';
 // import 'package:ppkd_b_3/Tugas4_Flutter/tugas4_flutter.dart';
 import 'package:ppkd_b_3/extension/navigation.dart';
 import 'package:ppkd_b_3/tugas7flutter/DatePicker.dart';
@@ -8,6 +9,7 @@ import 'package:ppkd_b_3/tugas7flutter/TimePicker.dart';
 import 'package:ppkd_b_3/tugas7flutter/checkbox.dart';
 import 'package:ppkd_b_3/tugas7flutter/switch.dart';
 import 'package:ppkd_b_3/tugas9_flutter/TugasSembilan.dart';
+// import 'package:ppkd_b_3/Tugas11_flutter/dbHelper.dart';
 
 // import 'package:ppkd_b_3/tugas7flutter/DropDown.dart';
 
@@ -28,6 +30,7 @@ class _tugasTujuhState extends State<tugasTujuh> {
     "Atur Pengingat",
     "List ",
     "Form Daftar",
+    'Data Komunitas',
   ];
   static const List<Widget> _widgetOptions = <Widget>[
     CheckboxTugas(),
@@ -37,6 +40,7 @@ class _tugasTujuhState extends State<tugasTujuh> {
     TimepickerTugas(),
     ListTugas(),
     ParsingData1(),
+    DataKomunitas(),
   ];
 
   void onItemTap(int index) {
@@ -72,6 +76,7 @@ class _tugasTujuhState extends State<tugasTujuh> {
             ListTile(title: Text("Timepicker"), onTap: () => onItemTap(4)),
             ListTile(title: Text("List"), onTap: () => onItemTap(5)),
             ListTile(title: Text("Form"), onTap: () => onItemTap(6)),
+            ListTile(title: Text("Data Komunitas"), onTap: () => onItemTap(7)),
           ],
         ),
       ),
