@@ -93,38 +93,3 @@ class AboutPage extends StatelessWidget {
     );
   }
 }
-
-// // Halaman ketiga (Checkbox)
-// class CheckboxPage extends StatefulWidget {
-//   const CheckboxPage({super.key});
-
-//   @override
-//   _CheckboxPageState createState() => _CheckboxPageState();
-// }
-
-// class _CheckboxPageState extends State<CheckboxPage> {
-//   bool isChecked = false;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(title: Text('Checkbox Page')),
-//       body: Center(
-//         child: Row(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           children: [
-//             Checkbox(
-//               value: isChecked,
-//               onChanged: (bool? value) {
-//                 setState(() {
-//                   isChecked = value ?? false;
-//                 });
-//               },
-//             ),
-//             Text('Centang saya!'),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }

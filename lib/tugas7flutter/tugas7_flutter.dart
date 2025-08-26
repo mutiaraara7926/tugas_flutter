@@ -3,6 +3,7 @@ import 'package:ppkd_b_3/Tugas10_ParsingData/TugasSepuluh1.dart';
 import 'package:ppkd_b_3/Tugas11_flutter/user_screen.dart';
 // import 'package:ppkd_b_3/Tugas4_Flutter/tugas4_flutter.dart';
 import 'package:ppkd_b_3/extension/navigation.dart';
+import 'package:ppkd_b_3/tugas14fluttter/api/view/screen.dart';
 import 'package:ppkd_b_3/tugas7flutter/DatePicker.dart';
 import 'package:ppkd_b_3/tugas7flutter/DropDown.dart';
 import 'package:ppkd_b_3/tugas7flutter/TimePicker.dart';
@@ -31,6 +32,7 @@ class _tugasTujuhState extends State<tugasTujuh> {
     "List ",
     "Form Daftar",
     'Data Komunitas',
+    "Rick and Morty",
   ];
   static const List<Widget> _widgetOptions = <Widget>[
     CheckboxTugas(),
@@ -41,6 +43,7 @@ class _tugasTujuhState extends State<tugasTujuh> {
     ListTugas(),
     ParsingData1(),
     DataKomunitas(),
+    getScreen(),
   ];
 
   void onItemTap(int index) {
@@ -77,6 +80,7 @@ class _tugasTujuhState extends State<tugasTujuh> {
             ListTile(title: Text("List"), onTap: () => onItemTap(5)),
             ListTile(title: Text("Form"), onTap: () => onItemTap(6)),
             ListTile(title: Text("Data Komunitas"), onTap: () => onItemTap(7)),
+            ListTile(title: Text("Rick and Morty"), onTap: () => onItemTap(8)),
           ],
         ),
       ),
