@@ -3,7 +3,7 @@ import 'package:ppkd_b_3/Tugas10_ParsingData/TugasSepuluh1.dart';
 import 'package:ppkd_b_3/Tugas11_flutter/user_screen.dart';
 // import 'package:ppkd_b_3/Tugas4_Flutter/tugas4_flutter.dart';
 import 'package:ppkd_b_3/extension/navigation.dart';
-import 'package:ppkd_b_3/tugas14fluttter/api/view/screen.dart';
+import 'package:ppkd_b_3/tugas14fluttter/view/screen.dart';
 import 'package:ppkd_b_3/tugas7flutter/DatePicker.dart';
 import 'package:ppkd_b_3/tugas7flutter/DropDown.dart';
 import 'package:ppkd_b_3/tugas7flutter/TimePicker.dart';
@@ -61,7 +61,7 @@ class _tugasTujuhState extends State<tugasTujuh> {
           _titles[_selectedIndexDrawer],
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
-        backgroundColor: const Color.fromARGB(255, 165, 137, 240),
+        backgroundColor: const Color.fromARGB(244, 9, 73, 28),
       ),
       body: Center(child: _widgetOptions[_selectedIndexDrawer]),
       // appBar: AppBar

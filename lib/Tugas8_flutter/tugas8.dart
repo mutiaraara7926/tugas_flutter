@@ -22,7 +22,7 @@ class _Tugaas8State extends State<Tugaas8> {
     return Scaffold(
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: const Color.fromARGB(255, 165, 137, 240),
+        backgroundColor: const Color.fromARGB(244, 9, 73, 28),
         currentIndex: _selectedIndex,
         selectedItemColor: Color.fromARGB(255, 24, 16, 32),
         unselectedItemColor: const Color.fromARGB(255, 255, 255, 255),
