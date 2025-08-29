@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-
-// import 'package:ppkd_b_3/Tugas8_flutter/tugas8.dart';
-// import 'package:ppkd_b_3/praktek_flutter/cobain_cobaaan.dart';
-// import 'package:ppkd_b_3/tugas7flutter/tugas7_flutter.dart';
-import 'Projek_Daftar_Alumni/login.dart';
+import 'package:ppkd_b_3/tugas15_flutter/view/dashboard.dart';
+import 'package:ppkd_b_3/tugas15_flutter/view/login_api.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,6 +34,22 @@ class MyApp extends StatelessWidget {
       ),
       //
       home: Login(),
+      routes: {
+        // '/': (context) => const Start(),
+        // '/tugas2': (context) => const TugasDua(),
+        // '/tugas3': (context) => const TugasTiga(),
+        // '/tugas4': (context) => const TugasEmpat(),
+        // '/tugas5': (context) => const TugasLima(),
+        // '/home': (context) => const Home(),
+        // Home.id: (context) => Home(),
+        // TugasDelapan.id: (context) => TugasDelapan(),
+        Login.id: (context) => Login(),
+        Dashboard.id: (context) => Dashboard(),
+
+        // '/tugasDelapan': (context) => const TugasDelapan(),
+        // '/login': (context) => const TugasEnam(),
+        // '/cobaFlutter': (context) => const TugasEnam(),
+      },
     );
   }
 }
